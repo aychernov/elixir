@@ -8,5 +8,6 @@ defmodule Helpers.Format do
     |> String.trim()
     |> String.downcase()
     |> String.replace(" ", "-")
+    |> dbg()
   end
 end
