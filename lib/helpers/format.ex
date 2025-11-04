@@ -1,16 +1,12 @@
 defmodule Helpers.Format do
-  @moduledoc """
-  Module for format strings
-  """
-
-  @doc """
-  Trim text
-
-  ## Examples:
-
-  "Hello world   " => "Hello world"
-  """
   def trim_text(string) do
     String.trim(string)
+  end
+
+  def generate_slug(text) do
+    text
+    |> String.trim()
+    |> String.downcase()
+    |> String.replace(" ", "-")
   end
 end
