@@ -36,6 +36,23 @@ defmodule Games do
     end
   end
 
+  def filter_games(game_list) do
+    Enum.filter(game_list, fn game -> game.in_stock && game.price <= 50 end)
+  end
+
+  def print_list(game_list) do
+    mapped_const =
+      Enum.map(game_list, fn game ->
+        "#{game.name} is #{if game.in_stock, do: "in stock!", else: "not avaliable! 🛑"}, price: $#{game.price} \n"
+      end)
+
+    mapped_const
+  end
+
+  def print_map(game) do
+    Enum.each(game, fn {key, value} -> IO.puts("#{key}: #{value}") end)
+  end
+
   defp validate_purchase(game) do
     # unless(game.in_stock) do
     #   {:error, "Game not avaliable"}
